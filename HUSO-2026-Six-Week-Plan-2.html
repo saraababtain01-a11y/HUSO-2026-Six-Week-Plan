@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HUSO Global 2026 — Six-Week Training Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDF0EB;
+  --card:#F7F9F5;
+  --ink:#16231D;
+  --slate:#57685F;
+  --rule:#D2DACF;
+  --crimson:#8E1B2E;
+  --amber:#9E6F1E;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111715;
+    --card:#18201C;
+    --ink:#E4EAE3;
+    --slate:#9DAEA3;
+    --rule:#2C3733;
+    --crimson:#E08192;
+    --amber:#D9A94E;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111715;--card:#18201C;--ink:#E4EAE3;--slate:#9DAEA3;--rule:#2C3733;--crimson:#E08192;--amber:#D9A94E;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:1.0625rem;line-height:1.6;
+}
+h1,h2,h3,h4,button,th,.wk-num,.chip{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.25rem 5rem}
+
+/* ---------- masthead ---------- */
+header.top{padding:3.5rem 0 1.5rem;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:.9rem;margin-bottom:1.6rem}
+.brand img{height:2.1rem;width:auto;display:block}
+.brand span{font-family:"Bricolage Grotesque",sans-serif;font-size:.8rem;font-weight:600;color:var(--slate);letter-spacing:.01em;margin-left:.1rem}
+
+.kicker{font-family:"Bricolage Grotesque",sans-serif;font-size:.9rem;font-weight:600;color:var(--crimson);margin:0 0 .6rem}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.02;font-weight:800;letter-spacing:-.025em;margin:0 0 .8rem;max-width:18ch}
+.lede{max-width:62ch;color:var(--slate);margin:0;font-size:1.0625rem}
+
+/* ---------- overview grid ---------- */
+.overview{margin:2.5rem 0 0}
+.grid-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.4rem}
+table.map{border-collapse:collapse;width:100%;min-width:52rem;font-size:.9rem}
+table.map th,table.map td{text-align:left;vertical-align:top;padding:.7rem .8rem;border-bottom:1px solid var(--rule)}
+table.map thead th{font-size:.82rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--ink)}
+table.map tbody th{font-weight:600;color:var(--crimson);white-space:nowrap;width:9rem}
+table.map td{color:var(--ink);font-family:"Newsreader",serif}
+
+/* ---------- rhythm ---------- */
+.rhythm{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem;margin:2.5rem 0 0}
+.rhythm div{border-top:2px solid var(--amber);padding-top:.7rem}
+.rhythm h3{font-size:.95rem;font-weight:600;margin:0 0 .3rem}
+.rhythm p{margin:0;font-size:.95rem;color:var(--slate)}
+
+/* ---------- subject nav ---------- */
+nav.subjects{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);
+  border-bottom:1px solid var(--rule);margin-top:3rem;padding:.6rem 0;display:flex;gap:.4rem;overflow-x:auto}
+nav.subjects button{
+  flex:0 0 auto;font-size:.95rem;font-weight:600;padding:.5rem .9rem;border-radius:2rem;cursor:pointer;
+  border:1px solid var(--rule);background:transparent;color:var(--slate);transition:background .15s,color .15s,border-color .15s}
+nav.subjects button:hover{color:var(--ink)}
+nav.subjects button[aria-selected="true"]{background:var(--crimson);border-color:var(--crimson);color:var(--card)}
+nav.subjects button:focus-visible,a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* ---------- subject panel ---------- */
+.panel{padding-top:2.25rem}
+.panel[hidden]{display:none}
+.panel-head{max-width:64ch;margin-bottom:2rem}
+.panel-head h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin:0 0 .5rem}
+.panel-head p{margin:0 0 .75rem;color:var(--slate)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+.chip{font-size:.78rem;font-weight:600;color:var(--amber);border:1px solid var(--rule);border-radius:.3rem;padding:.2rem .5rem}
+
+/* ---------- week rows ---------- */
+.week{display:grid;grid-template-columns:5.5rem 1fr 1fr;gap:1.5rem;padding:1.6rem 0;border-top:1px solid var(--rule)}
+.week:last-child{border-bottom:1px solid var(--rule)}
+.wk-num{font-size:2.6rem;font-weight:800;line-height:.9;color:var(--crimson);letter-spacing:-.04em}
+.wk-num span{display:block;font-size:.72rem;font-weight:600;color:var(--slate);letter-spacing:.02em;margin-bottom:.25rem}
+.week h4{font-size:.85rem;font-weight:600;color:var(--slate);margin:0 0 .55rem}
+.week .topic{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:.35rem 0 .7rem;line-height:1.25}
+.week ul{margin:0;padding-left:1.05rem}
+.week li{margin-bottom:.3rem}
+.week li::marker{color:var(--amber)}
+.task{display:block;margin-top:.7rem;font-size:.9rem;color:var(--slate);border-left:2px solid var(--amber);padding-left:.7rem}
+.task b{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:var(--ink)}
+
+/* ---------- quiz ---------- */
+.week .quiz{grid-column:1 / -1;margin-top:.5rem;padding-top:1rem;border-top:1px dashed var(--rule)}
+.week .quiz h4{font-family:"Bricolage Grotesque",sans-serif;font-size:.78rem;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}
+.week .quiz > ol{margin:0;padding-left:1.15rem;font-size:.92rem}
+.week .quiz > ol > li{margin-bottom:.6rem;color:var(--ink)}
+.week .quiz > ol > li::marker{color:var(--crimson);font-weight:600}
+.week .quiz ol[type="a"]{margin:.3rem 0 0;padding-left:1.15rem;list-style-type:lower-alpha}
+.week .quiz ol[type="a"] li{margin-bottom:.2rem;color:var(--slate)}
+.week .quiz ol[type="a"] li::marker{color:var(--slate)}
+.week .quiz .key{margin:.7rem 0 0;font-size:.78rem;color:var(--slate);opacity:.8;letter-spacing:.01em}
+
+/* ---------- books ---------- */
+.books{margin-top:2.5rem;background:var(--card);border:1px solid var(--rule);border-radius:.4rem;padding:1.25rem 1.4rem}
+.books h3{font-size:.95rem;font-weight:600;margin:0 0 .6rem}
+.books ul{margin:0;padding-left:1.05rem;color:var(--slate);font-size:.95rem}
+.books li{margin-bottom:.25rem}
+
+footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);color:var(--slate);font-size:.9rem;max-width:64ch}
+
+@media (max-width:780px){
+  .week{grid-template-columns:1fr;gap:.9rem;padding:1.4rem 0}
+  .wk-num{font-size:1.5rem}
+  .wk-num span{display:inline;font-size:.72rem;margin-right:.4rem}
+  header.top{padding-top:2.25rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand"><img src="data:image/png;base64,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" alt="Riyadh Najed Schools logo"><span>Riyadh Najed Schools</span></div>
+  <p class="kicker">Harvard Undergraduate Science Olympiad 2026 · Open Round · Grades 9–10</p>
+  <h1>Six weeks to the open round</h1>
+  <p class="lede">A teaching plan and a matching student study plan for all five subjects, built directly from the official HUSO syllabi. Each subject runs its own six weeks, so a student sitting one paper follows one column and nothing else.</p>
+
+  <div class="overview">
+    <div class="grid-scroll">
+      <table class="map">
+        <thead>
+          <tr><th scope="col">Subject</th><th scope="col">Week 1</th><th scope="col">Week 2</th><th scope="col">Week 3</th><th scope="col">Week 4</th><th scope="col">Week 5</th><th scope="col">Week 6</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Biology</th><td>Biomolecules &amp; the cell</td><td>Central dogma, division</td><td>Photosynthesis &amp; respiration</td><td>Tissues, digestion, gas exchange, excretion</td><td>Nerves, hormones, blood, immunity</td><td>Ecology, classification, mock</td></tr>
+          <tr><th scope="row">Chemistry</th><td>Atoms, isotopes, configuration</td><td>Trends &amp; bonding</td><td>Forces, solids, reaction types</td><td>Stoichiometry</td><td>Solutions, acids &amp; bases</td><td>Thermochemistry, organic, mock</td></tr>
+          <tr><th scope="row">Physics</th><td>Kinematics &amp; vectors</td><td>Forces, work, energy</td><td>Momentum, circular motion, gravity</td><td>Rotation &amp; oscillation</td><td>Thermodynamics</td><td>Circuits, waves, optics, mock</td></tr>
+          <tr><th scope="row">Mathematics</th><td>Polynomials</td><td>Sequences, inequalities, functions</td><td>Number theory</td><td>Triangle geometry</td><td>Circles &amp; coordinates</td><td>Counting, probability, mock</td></tr>
+          <tr><th scope="row">Earth Science</th><td>Atmosphere &amp; water in the air</td><td>Air masses, fronts, storms</td><td>Global circulation</td><td>Hydrosphere</td><td>Geosphere</td><td>Astronomy, mock</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="rhythm">
+    <div><h3>Two taught sessions a week</h3><p>Roughly 60–75 minutes each. The first session builds the concept, the second is problems on the board with students at the front.</p></div>
+    <div><h3>Four study blocks a week</h3><p>Two reading blocks of about 40 minutes and two problem blocks of about 45 minutes, done at home between sessions.</p></div>
+    <div><h3>One timed set every Thursday</h3><p>20–25 minutes, closed book except the official reference sheet. Mark it together at the start of the next session.</p></div>
+    <div><h3>An error log per student</h3><p>One page per week: the question, the wrong step, the correct idea in a single line. This is the only revision material needed in week 6.</p></div>
+  </div>
+</header>
+
+<nav class="subjects" role="tablist" aria-label="Subjects">
+  <button role="tab" id="tab-bio" aria-controls="p-bio" aria-selected="true">Biology</button>
+  <button role="tab" id="tab-chem" aria-controls="p-chem" aria-selected="false">Chemistry</button>
+  <button role="tab" id="tab-phys" aria-controls="p-phys" aria-selected="false">Physics</button>
+  <button role="tab" id="tab-math" aria-controls="p-math" aria-selected="false">Mathematics</button>
+  <button role="tab" id="tab-earth" aria-controls="p-earth" aria-selected="false">Earth Science</button>
+</nav>
+
+<!-- ================= BIOLOGY ================= -->
+<section class="panel" id="p-bio" role="tabpanel" aria-labelledby="tab-bio">
+  <div class="panel-head">
+    <h2>Biology</h2>
+    <p>The syllabus mirrors INBO content and the ICSE grade 9–10 curriculum, with Campbell as the reference text. Breadth matters more than depth here: almost every listed organ system can appear, so the six weeks sweep the whole list once and then drill recall.</p>
+    <div class="chips"><span class="chip">Cell &amp; molecular</span><span class="chip">Plant processes</span><span class="chip">Animal systems</span><span class="chip">Ecology</span><span class="chip">Classification</span></div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>1</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Biomolecules and the cell</p>
+      <ul>
+        <li>Carbon as the basis of life; nucleic acids, lipids, proteins, carbohydrates — structure tied to function.</li>
+        <li>Cell theory, then a guided tour of every organelle on the list, ending with why compartments exist at all.</li>
+        <li>Prokaryote vs eukaryote, plant vs animal cell, drawn as two comparison tables students build themselves.</li>
+        <li>Microscopy: magnification, resolution, what each part of the light microscope does.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Campbell chapters on the chemistry of life and the cell; read the chapter review summaries first, then the chapter.</li>
+        <li>Make one organelle sheet: name, structure, function, present in plant / animal / both.</li>
+        <li>Label a blank plant cell and a blank animal cell from memory, twice.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 multiple-choice questions on cell structure from past INBO or USABO open papers.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Which biomolecule is the primary structural component of cell membranes?
+            <ol type="a">
+              <li>Carbohydrates</li>
+              <li>Proteins</li>
+              <li>Lipids</li>
+              <li>Nucleic acids</li>
+            </ol>
+          </li>
+          <li>Which organelle produces most of a cell&#x27;s ATP through aerobic respiration?
+            <ol type="a">
+              <li>Golgi apparatus</li>
+              <li>Mitochondria</li>
+              <li>Lysosome</li>
+              <li>Ribosome</li>
+            </ol>
+          </li>
+          <li>A cell with no nucleus and no membrane-bound organelles is best classified as:
+            <ol type="a">
+              <li>Eukaryotic</li>
+              <li>Prokaryotic</li>
+              <li>A plant cell</li>
+              <li>An animal cell</li>
+            </ol>
+          </li>
+          <li>Which structure is found in plant cells but not animal cells?
+            <ol type="a">
+              <li>Mitochondria</li>
+              <li>Cell membrane</li>
+              <li>Cell wall</li>
+              <li>Ribosome</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–b, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>2</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Central dogma and cell division</p>
+      <ul>
+        <li>DNA replication step by step, with the enzymes named and the leading/lagging distinction drawn.</li>
+        <li>Transcription, RNA processing, translation — one continuous worked example from gene to protein.</li>
+        <li>Mitosis and meiosis side by side; chromosome number at every stage.</li>
+        <li>Common exam traps: reading frames, complementary vs mRNA sequence, crossing over placement.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Practise writing the mRNA and amino acid sequence from a DNA strand until it takes under a minute.</li>
+        <li>Draw the eight stages of meiosis unaided and annotate where variation is generated.</li>
+        <li>Error log: every question missed because of a stage name rather than a concept.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 questions on molecular biology and division.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Copying the information in DNA into a strand of mRNA is called:
+            <ol type="a">
+              <li>Translation</li>
+              <li>Transcription</li>
+              <li>Replication</li>
+              <li>Transduction</li>
+            </ol>
+          </li>
+          <li>During which stage of mitosis do chromosomes line up at the cell&#x27;s equator?
+            <ol type="a">
+              <li>Prophase</li>
+              <li>Metaphase</li>
+              <li>Anaphase</li>
+              <li>Telophase</li>
+            </ol>
+          </li>
+          <li>Meiosis of a single parent cell produces how many daughter cells?
+            <ol type="a">
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>8</li>
+            </ol>
+          </li>
+          <li>Which enzyme unwinds the DNA double helix during replication?
+            <ol type="a">
+              <li>DNA polymerase</li>
+              <li>Helicase</li>
+              <li>Ligase</li>
+              <li>Primase</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–c, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>3</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Photosynthesis and cellular respiration</p>
+      <ul>
+        <li>Photosynthesis: overall equation, light-dependent and light-independent stages, where each occurs.</li>
+        <li>The four limiting factors and how each one bends the rate graph.</li>
+        <li>Respiration: aerobic and anaerobic word equations, in plants as well as animals, and the energy yield of each.</li>
+        <li>Classic demonstration set-ups — destarched leaf, hydrogencarbonate indicator, germinating seeds — as they are examined.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Build a single comparison table: photosynthesis vs respiration, across site, reactants, products, energy, timing.</li>
+        <li>Sketch and explain three rate graphs from the limiting-factor work.</li>
+        <li>Write out both experiment protocols including the control.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions, at least four of them experiment-based.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>The light-independent reactions of photosynthesis (the Calvin cycle) take place in the:
+            <ol type="a">
+              <li>Thylakoid membrane</li>
+              <li>Stroma</li>
+              <li>Cytoplasm</li>
+              <li>Mitochondrial matrix</li>
+            </ol>
+          </li>
+          <li>Which gas is released as a product of photosynthesis?
+            <ol type="a">
+              <li>Carbon dioxide</li>
+              <li>Nitrogen</li>
+              <li>Oxygen</li>
+              <li>Methane</li>
+            </ol>
+          </li>
+          <li>Anaerobic respiration in yeast produces ethanol and:
+            <ol type="a">
+              <li>Oxygen</li>
+              <li>Carbon dioxide</li>
+              <li>Water</li>
+              <li>Lactic acid</li>
+            </ol>
+          </li>
+          <li>Which pigment absorbs light for photosynthesis?
+            <ol type="a">
+              <li>Melanin</li>
+              <li>Chlorophyll</li>
+              <li>Keratin</li>
+              <li>Haemoglobin</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–c, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>4</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Tissues, digestion, gas exchange, excretion</p>
+      <ul>
+        <li>Epithelial, connective and the three muscle types — location and one function each, as the syllabus specifies.</li>
+        <li>Digestive organs and glands, food classes, balanced diet, deficiency diseases.</li>
+        <li>Breathing mechanism, tissue respiration, heat production.</li>
+        <li>Excretory organs and their products; the kidney and urinary tract with a labelled diagram. Nephron structure is explicitly out of scope — say so.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>One page per system: organ, function, secretion where relevant.</li>
+        <li>Label the digestive tract and the urinary system from blank diagrams.</li>
+        <li>Learn the deficiency-disease list as a table, not as prose.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 questions mixing tissues, digestion and excretion.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Which tissue type lines body cavities and covers organ surfaces?
+            <ol type="a">
+              <li>Connective</li>
+              <li>Muscular</li>
+              <li>Epithelial</li>
+              <li>Nervous</li>
+            </ol>
+          </li>
+          <li>Bile, which helps digest fats, is produced by the:
+            <ol type="a">
+              <li>Pancreas</li>
+              <li>Liver</li>
+              <li>Stomach</li>
+              <li>Small intestine</li>
+            </ol>
+          </li>
+          <li>The main nitrogenous waste removed by the kidneys is:
+            <ol type="a">
+              <li>Glucose</li>
+              <li>Urea</li>
+              <li>Bile</li>
+              <li>Amino acids</li>
+            </ol>
+          </li>
+          <li>Which muscle type is found only in the heart?
+            <ol type="a">
+              <li>Striated (skeletal)</li>
+              <li>Smooth</li>
+              <li>Cardiac</li>
+              <li>Both striated and smooth</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–b, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>5</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Nerves, hormones, blood, immunity</p>
+      <ul>
+        <li>Brain, spinal cord and nerves; cerebrum, cerebellum and medulla by function; motor neuron structure.</li>
+        <li>Reflex arc with every term defined: stimulus, receptor, impulse, response, effector.</li>
+        <li>Exocrine vs endocrine; the four listed glands in the tabular form the syllabus asks for.</li>
+        <li>Heart internal structure, double circulation, named vessels, blood groups, and the lymphatic system as a parallel circuit.</li>
+        <li>Innate vs adaptive immunity, B and T cells, antibodies, allergy and allergens.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Draw the heart with valves and septum, then trace a red blood cell through both circuits.</li>
+        <li>Complete the four-gland table: name, location, secretion, function.</li>
+        <li>Memorise the universal donor and acceptor logic rather than the answer.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 18 questions across all four systems.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Which part of the brain is mainly responsible for balance and coordination?
+            <ol type="a">
+              <li>Cerebrum</li>
+              <li>Cerebellum</li>
+              <li>Medulla oblongata</li>
+              <li>Spinal cord</li>
+            </ol>
+          </li>
+          <li>A person with which blood type is the universal donor?
+            <ol type="a">
+              <li>A</li>
+              <li>B</li>
+              <li>AB</li>
+              <li>O</li>
+            </ol>
+          </li>
+          <li>Which cells are mainly responsible for producing antibodies?
+            <ol type="a">
+              <li>T cells</li>
+              <li>B cells</li>
+              <li>Red blood cells</li>
+              <li>Platelets</li>
+            </ol>
+          </li>
+          <li>In a reflex arc, which structure carries the impulse from the spinal cord to the muscle?
+            <ol type="a">
+              <li>Receptor</li>
+              <li>Sensory neuron</li>
+              <li>Motor neuron</li>
+              <li>Effector</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–d, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>6</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Ecology, classification, and the mock</p>
+      <ul>
+        <li>Ecosystems, biotic and abiotic factors, producers, consumers, decomposers.</li>
+        <li>Food chains, food webs, pyramid of numbers; symbiosis, parasitism, predation.</li>
+        <li>The five kingdoms with the specific detail the syllabus names — and the note that plant classification is not tested.</li>
+        <li>Full-length mock under exam conditions, then a walkthrough of every question the group got wrong.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Revise only from the error log and the comparison tables built in weeks 1–5.</li>
+        <li>One past INBO open paper on Monday, one USABO open paper on Thursday, both timed.</li>
+        <li>Final pass on vocabulary: any term that appeared in a question stem and was unfamiliar.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> full mock, exam length, exam conditions.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Organisms that make their own food using sunlight are called:
+            <ol type="a">
+              <li>Consumers</li>
+              <li>Decomposers</li>
+              <li>Producers</li>
+              <li>Predators</li>
+            </ol>
+          </li>
+          <li>A relationship in which one organism benefits and the other is harmed is:
+            <ol type="a">
+              <li>Mutualism</li>
+              <li>Commensalism</li>
+              <li>Parasitism</li>
+              <li>Competition</li>
+            </ol>
+          </li>
+          <li>Which kingdom includes single-celled organisms such as Amoeba?
+            <ol type="a">
+              <li>Monera</li>
+              <li>Protista</li>
+              <li>Fungi</li>
+              <li>Plantae</li>
+            </ol>
+          </li>
+          <li>Moving from producers to top predators, a pyramid of numbers usually shows:
+            <ol type="a">
+              <li>Increasing numbers</li>
+              <li>Decreasing numbers</li>
+              <li>Constant numbers</li>
+              <li>No consistent pattern</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–c, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="books">
+    <h3>Resources for this subject</h3>
+    <ul>
+      <li>Campbell Biology — chapter reviews and practice questions.</li>
+      <li>Past INBO and USABO open-round papers (opens only).</li>
+      <li>AP Biology practice questions on Khan Academy.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CHEMISTRY ================= -->
+<section class="panel" id="p-chem" role="tabpanel" aria-labelledby="tab-chem" hidden>
+  <div class="panel-head">
+    <h2>Chemistry</h2>
+    <p>A periodic table and all needed constants are supplied in the exam, so nothing here is a memory test of numbers. Common formulas and reactions do have to be known. Organic chemistry is capped at roughly 15–20% of the paper, which is exactly how much time it gets in this plan.</p>
+    <div class="chips"><span class="chip">Inorganic</span><span class="chip">Analytical</span><span class="chip">Thermochemistry</span><span class="chip">Organic ~15–20%</span><span class="chip">Lab skills</span></div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>1</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Atoms, isotopes, electron configuration</p>
+      <ul>
+        <li>Atomic number, mass number, relative atomic mass, isotope calculations.</li>
+        <li>Alpha, beta and gamma decay; writing and balancing nuclear equations.</li>
+        <li>Quantum numbers n, l, m; s, p and d orbitals; Hund's rule and the Pauli principle.</li>
+        <li>Configurations of atoms and ions, then paramagnetism vs diamagnetism as a direct consequence.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Write configurations for twenty elements and ten ions, including the transition-metal exceptions.</li>
+        <li>Balance fifteen nuclear equations.</li>
+        <li>Work three weighted-average atomic mass problems in both directions.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions from a USNCO local paper, atomic structure only.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Isotopes of the same element differ in their number of:
+            <ol type="a">
+              <li>Protons</li>
+              <li>Electrons</li>
+              <li>Neutrons</li>
+              <li>Valence electrons</li>
+            </ol>
+          </li>
+          <li>Which subatomic particle carries no electric charge?
+            <ol type="a">
+              <li>Proton</li>
+              <li>Electron</li>
+              <li>Neutron</li>
+              <li>Ion</li>
+            </ol>
+          </li>
+          <li>The electron configuration of neon (Z = 10) is:
+            <ol type="a">
+              <li>1s² 2s² 2p⁶</li>
+              <li>1s² 2s² 2p⁴</li>
+              <li>1s² 2s² 2p⁶ 3s²</li>
+              <li>1s² 2p⁸</li>
+            </ol>
+          </li>
+          <li>Which type of radioactive decay involves the emission of a helium nucleus?
+            <ol type="a">
+              <li>Alpha</li>
+              <li>Beta</li>
+              <li>Gamma</li>
+              <li>Positron</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–c, 3–a, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>2</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Periodic trends and bonding</p>
+      <ul>
+        <li>Main group vs transition elements; the six trends on the syllabus, each explained by shielding and nuclear charge rather than memorised.</li>
+        <li>Bond types, hybridisation, VSEPR: shape, bond angle, polarity.</li>
+        <li>Molecules worked to completion: Lewis structure, steric number, shape, polarity.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Complete a VSEPR grid of twenty molecules and ions across all the standard geometries.</li>
+        <li>For each trend, write the one-sentence reason it exists and the one common exception.</li>
+        <li>Predict polarity for fifteen molecules and check against the shape.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 questions on trends and molecular geometry.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Moving left to right across a period, atomic radius generally:
+            <ol type="a">
+              <li>Increases</li>
+              <li>Decreases</li>
+              <li>Stays the same</li>
+              <li>Increases then decreases</li>
+            </ol>
+          </li>
+          <li>Which type of bond involves atoms sharing pairs of electrons?
+            <ol type="a">
+              <li>Ionic</li>
+              <li>Covalent</li>
+              <li>Metallic</li>
+              <li>Hydrogen</li>
+            </ol>
+          </li>
+          <li>A central atom with a tetrahedral electron geometry and no lone pairs has bond angles of approximately:
+            <ol type="a">
+              <li>90°</li>
+              <li>109.5°</li>
+              <li>120°</li>
+              <li>180°</li>
+            </ol>
+          </li>
+          <li>Ionisation energy generally increases moving:
+            <ol type="a">
+              <li>Down a group</li>
+              <li>Up a group, right to left</li>
+              <li>Down a group, right to left</li>
+              <li>Up a group and left to right across a period</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–d</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>3</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Intermolecular forces, solids, reaction types</p>
+      <ul>
+        <li>The forces ranked, and the boiling-point questions they generate.</li>
+        <li>Metallic bonding and the properties it explains; acid–base behaviour of oxides across a period.</li>
+        <li>Reaction types and balancing, including redox by oxidation number.</li>
+        <li>Empirical and molecular formulas from composition data.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Balance thirty equations of mixed type, ten of them redox.</li>
+        <li>Rank five sets of compounds by boiling point and justify each ranking in one line.</li>
+        <li>Five empirical-formula problems from combustion data.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 questions on bonding, forces and reaction types.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Of the following, which intermolecular force is generally the strongest?
+            <ol type="a">
+              <li>London dispersion</li>
+              <li>Dipole–dipole</li>
+              <li>Hydrogen bonding</li>
+              <li>They are always equal in strength</li>
+            </ol>
+          </li>
+          <li>A reaction in which one compound breaks down into two or more simpler substances is called:
+            <ol type="a">
+              <li>Synthesis</li>
+              <li>Decomposition</li>
+              <li>Single replacement</li>
+              <li>Double replacement</li>
+            </ol>
+          </li>
+          <li>In metallic bonding, the valence electrons are best described as:
+            <ol type="a">
+              <li>Localised on one atom</li>
+              <li>Delocalised across the metal (a &#x27;sea of electrons&#x27;)</li>
+              <li>Completely transferred</li>
+              <li>Shared in fixed pairs only</li>
+            </ol>
+          </li>
+          <li>A compound is 40% C, 6.7% H and 53.3% O by mass. Its empirical formula is:
+            <ol type="a">
+              <li>CH₂O</li>
+              <li>C₂H₄O₂</li>
+              <li>C₆H₁₂O₆</li>
+              <li>CHO</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–b, 3–b, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>4</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Stoichiometry</p>
+      <ul>
+        <li>The mole through volume, mass and number of atoms — the three routes on one diagram.</li>
+        <li>Limiting reagent, percentage yield, percentage purity.</li>
+        <li>Gas stoichiometry with the ideal gas law using the supplied value of R.</li>
+        <li>Concentration calculations and dilution.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twenty-five mixed stoichiometry problems, worked with units carried through every line.</li>
+        <li>Rewrite three problems you got wrong as a clean model solution for the error log.</li>
+        <li>Practise unit conversion speed: g to mol to particles to litres at STP.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 calculation questions, 20 minutes, calculator discipline enforced.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>One mole of any substance contains how many particles (Avogadro&#x27;s number)?
+            <ol type="a">
+              <li>6.022 × 10²²</li>
+              <li>6.022 × 10²³</li>
+              <li>3.011 × 10²³</li>
+              <li>1.0 × 10²³</li>
+            </ol>
+          </li>
+          <li>For 2H₂ + O₂ → 2H₂O, how many moles of water form from 4 moles of H₂ with excess O₂?
+            <ol type="a">
+              <li>2</li>
+              <li>4</li>
+              <li>6</li>
+              <li>8</li>
+            </ol>
+          </li>
+          <li>A reaction has a theoretical yield of 50 g and an actual yield of 40 g. The percentage yield is:
+            <ol type="a">
+              <li>40%</li>
+              <li>60%</li>
+              <li>80%</li>
+              <li>90%</li>
+            </ol>
+          </li>
+          <li>Using PV = nRT, if pressure and temperature are held constant, doubling the volume will:
+            <ol type="a">
+              <li>Double the number of moles</li>
+              <li>Halve the number of moles</li>
+              <li>Not change the number of moles present</li>
+              <li>Quadruple the number of moles</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–c, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>5</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Solutions, acids and bases</p>
+      <ul>
+        <li>Molarity, molality and the rest — when each one is the right measure.</li>
+        <li>Self-ionisation of water, Kw, pH and pOH.</li>
+        <li>Strong and weak acids and bases; hydrolysis of salts and why a salt solution is not neutral.</li>
+        <li>Neutralisation and titration arithmetic, plus the lab skills the paper asks about: apparatus choice, procedure, error analysis.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twenty pH problems: strong acid, strong base, weak acid, salt solution.</li>
+        <li>Write the hydrolysis equation for eight salts and predict acidic, basic or neutral.</li>
+        <li>For three given experiments, name the apparatus, the main error source and how to reduce it.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 15 questions on solutions and acid–base chemistry.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Pure water at 25 °C has a pH of approximately:
+            <ol type="a">
+              <li>0</li>
+              <li>7</li>
+              <li>10</li>
+              <li>14</li>
+            </ol>
+          </li>
+          <li>A solution with pH 3 is best described as:
+            <ol type="a">
+              <li>Basic</li>
+              <li>Neutral</li>
+              <li>Acidic</li>
+              <li>None of the above</li>
+            </ol>
+          </li>
+          <li>Molarity is defined as:
+            <ol type="a">
+              <li>Moles of solute per kilogram of solvent</li>
+              <li>Moles of solute per litre of solution</li>
+              <li>Grams of solute per litre of solution</li>
+              <li>Moles of solvent per litre of solution</li>
+            </ol>
+          </li>
+          <li>The salt formed from a strong acid and a weak base gives a solution that is:
+            <ol type="a">
+              <li>Acidic</li>
+              <li>Basic</li>
+              <li>Neutral</li>
+              <li>Amphoteric</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–c, 3–b, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>6</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Thermochemistry, organic, and the mock</p>
+      <ul>
+        <li>Enthalpy of phase transitions and bond dissociation; Hess's law worked three ways; lattice energy.</li>
+        <li>Organic in one concentrated pass: nomenclature, structures, alkanes, alkenes, alkynes, carbonyls.</li>
+        <li>Stereochemistry and chirality; conformational analysis; arrow pushing for addition, substitution and elimination.</li>
+        <li>Full mock, then review by topic rather than by question order.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Six Hess's law problems and three Born–Haber style cycles.</li>
+        <li>Name thirty organic structures and draw twenty from names.</li>
+        <li>Identify chiral centres in fifteen structures.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> full mock built from USNCO local papers; the hardest questions should resemble national Part I.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Hess&#x27;s Law states that the total enthalpy change of a reaction is:
+            <ol type="a">
+              <li>Dependent on the pathway taken</li>
+              <li>Independent of the pathway taken</li>
+              <li>Always zero</li>
+              <li>Only valid for exothermic reactions</li>
+            </ol>
+          </li>
+          <li>Which functional group is characteristic of alcohols?
+            <ol type="a">
+              <li>–COOH</li>
+              <li>–OH</li>
+              <li>–CHO</li>
+              <li>–NH₂</li>
+            </ol>
+          </li>
+          <li>A reaction that releases heat to its surroundings is described as:
+            <ol type="a">
+              <li>Endothermic</li>
+              <li>Exothermic</li>
+              <li>Isothermal</li>
+              <li>Adiabatic</li>
+            </ol>
+          </li>
+          <li>Non-superimposable mirror-image molecules are called:
+            <ol type="a">
+              <li>Structural isomers</li>
+              <li>Geometric isomers</li>
+              <li>Enantiomers</li>
+              <li>Conformers</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="books">
+    <h3>Resources for this subject</h3>
+    <ul>
+      <li>Zumdahl Chemistry for general chemistry; Klein Organic Chemistry for the organic chapters.</li>
+      <li>Past US National Chemistry Olympiad local exams (acs.org/olympiad).</li>
+      <li>IJSO chemistry papers (ijsoweb.org/downloads).</li>
+      <li>The provided formula sheet and periodic table — students should practise with it in front of them from week 1.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PHYSICS ================= -->
+<section class="panel" id="p-phys" role="tabpanel" aria-labelledby="tab-phys" hidden>
+  <div class="panel-head">
+    <h2>Physics</h2>
+    <p>Mechanics, electromagnetism and thermodynamics are named as the main subjects, with acoustics added. Constants and a formula table are provided in the exam, and anything unusual is given in the question itself — so sessions should spend their time on setting problems up, not on recall.</p>
+    <div class="chips"><span class="chip">Mechanics</span><span class="chip">Circuits</span><span class="chip">Thermodynamics</span><span class="chip">Acoustics</span><span class="chip">Optics on the sheet</span></div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>1</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Kinematics and vectors</p>
+      <ul>
+        <li>Scalars and vectors; components, addition, relative velocity.</li>
+        <li>The three kinematic equations from the sheet, and how to choose between them in one reading of the problem.</li>
+        <li>Graphs: position, velocity and acceleration read off each other.</li>
+        <li>Projectile motion as two independent one-dimensional problems.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Morin, the introductory chapters — read the worked solution only after attempting the problem.</li>
+        <li>Twenty kinematics problems, ten of them projectile.</li>
+        <li>Translate five motion graphs into words and five descriptions into graphs.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 10 Physics Bowl questions, 12 minutes.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Which of the following is a vector quantity?
+            <ol type="a">
+              <li>Speed</li>
+              <li>Distance</li>
+              <li>Velocity</li>
+              <li>Mass</li>
+            </ol>
+          </li>
+          <li>A ball thrown horizontally off a cliff (ignoring air resistance) has a horizontal velocity that:
+            <ol type="a">
+              <li>Increases steadily</li>
+              <li>Decreases steadily</li>
+              <li>Stays constant</li>
+              <li>Becomes zero at the peak</li>
+            </ol>
+          </li>
+          <li>A car starts from rest and accelerates at 2 m/s² for 5 s. Its final velocity is:
+            <ol type="a">
+              <li>2.5 m/s</li>
+              <li>5 m/s</li>
+              <li>10 m/s</li>
+              <li>20 m/s</li>
+            </ol>
+          </li>
+          <li>On a position–time graph, the slope at any point represents the object&#x27;s:
+            <ol type="a">
+              <li>Acceleration</li>
+              <li>Velocity</li>
+              <li>Displacement</li>
+              <li>Force</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–c, 3–c, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>2</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Forces, work and energy</p>
+      <ul>
+        <li>Free-body diagrams as the first line of every solution, without exception.</li>
+        <li>Newton's three laws, friction, normal force, inclines, connected bodies, pulleys.</li>
+        <li>Hooke's law and spring potential energy.</li>
+        <li>Work, kinetic and potential energy, conservation of energy, power.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Halliday, Resnick &amp; Walker chapters 2–8; sample problems worked before the end-of-chapter set.</li>
+        <li>Twenty force problems including at least five on inclines with friction.</li>
+        <li>Solve five problems twice — once by forces, once by energy — and compare the effort.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on dynamics and energy.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Newton&#x27;s second law is expressed as:
+            <ol type="a">
+              <li>F = ma</li>
+              <li>F = mv</li>
+              <li>F = m/a</li>
+              <li>F = a/m</li>
+            </ol>
+          </li>
+          <li>The work done by a constant force is calculated as:
+            <ol type="a">
+              <li>Force × time</li>
+              <li>Force × displacement</li>
+              <li>Force ÷ displacement</li>
+              <li>Mass × acceleration</li>
+            </ol>
+          </li>
+          <li>An object&#x27;s kinetic energy depends on its:
+            <ol type="a">
+              <li>Mass and height</li>
+              <li>Mass and velocity</li>
+              <li>Weight and time</li>
+              <li>Force and distance</li>
+            </ol>
+          </li>
+          <li>A spring with constant k is compressed by a distance x. The elastic potential energy stored is:
+            <ol type="a">
+              <li>kx</li>
+              <li>kx²</li>
+              <li>½kx²</li>
+              <li>½kx</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–a, 2–b, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>3</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Momentum, circular motion, gravity</p>
+      <ul>
+        <li>Impulse and momentum; elastic and inelastic collisions in one and two dimensions.</li>
+        <li>Centre of mass and why it simplifies collision problems.</li>
+        <li>Uniform circular motion, centripetal acceleration, banked curves, vertical loops.</li>
+        <li>Newtonian gravity, orbits, and gravitational potential energy.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Fifteen collision problems; for each, state which quantities are conserved before solving.</li>
+        <li>Ten circular motion problems, including the minimum-speed-at-the-top type.</li>
+        <li>Five orbital problems using the supplied value of G.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on conservation laws.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Momentum is defined as the product of an object&#x27;s:
+            <ol type="a">
+              <li>Mass and acceleration</li>
+              <li>Mass and velocity</li>
+              <li>Force and time</li>
+              <li>Force and distance</li>
+            </ol>
+          </li>
+          <li>In a perfectly elastic collision:
+            <ol type="a">
+              <li>Only momentum is conserved</li>
+              <li>Only kinetic energy is conserved</li>
+              <li>Both momentum and kinetic energy are conserved</li>
+              <li>Neither quantity is conserved</li>
+            </ol>
+          </li>
+          <li>Centripetal acceleration in circular motion always points:
+            <ol type="a">
+              <li>Tangent to the circle</li>
+              <li>Away from the centre</li>
+              <li>Toward the centre</li>
+              <li>In the direction of motion</li>
+            </ol>
+          </li>
+          <li>If the distance between two masses doubles, the gravitational force between them:
+            <ol type="a">
+              <li>Doubles</li>
+              <li>Halves</li>
+              <li>Becomes one quarter</li>
+              <li>Becomes four times as large</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–c, 3–c, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>4</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Rotation and oscillation</p>
+      <ul>
+        <li>Torque, angular acceleration, and the moments of inertia given on the sheet.</li>
+        <li>The parallel axis theorem — the sample question on a stick about its end is exactly this.</li>
+        <li>Angular momentum and its conservation; rolling without slipping.</li>
+        <li>Simple harmonic motion: mass–spring and pendulum periods, energy in oscillation.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Derive the stick-about-end result from the centre result, then do three more parallel-axis cases.</li>
+        <li>Twelve rotation problems and eight SHM problems.</li>
+        <li>Learn to read the moment-of-inertia table fast — the exam supplies it, but only under time pressure.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on rotation and SHM.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Torque about a pivot is calculated as:
+            <ol type="a">
+              <li>Force × mass</li>
+              <li>Force × perpendicular lever-arm distance</li>
+              <li>Mass × angular velocity</li>
+              <li>Moment of inertia × mass</li>
+            </ol>
+          </li>
+          <li>The moment of inertia of a uniform solid disk about its central axis is:
+            <ol type="a">
+              <li>mr²</li>
+              <li>½mr²</li>
+              <li>(2/5)mr²</li>
+              <li>(1/12)mL²</li>
+            </ol>
+          </li>
+          <li>The period of a simple pendulum depends mainly on:
+            <ol type="a">
+              <li>Mass and length</li>
+              <li>Length and gravitational acceleration</li>
+              <li>Mass and gravitational acceleration</li>
+              <li>Amplitude only</li>
+            </ol>
+          </li>
+          <li>In simple harmonic motion, the restoring force is:
+            <ol type="a">
+              <li>Constant in size and direction</li>
+              <li>Proportional to displacement, same direction</li>
+              <li>Proportional to displacement, opposite direction</li>
+              <li>Independent of displacement</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–c</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>5</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Thermodynamics</p>
+      <ul>
+        <li>The three laws, stated plainly and then applied.</li>
+        <li>Heat transfer, heat capacity, specific heat, latent heat, phases and phase transitions.</li>
+        <li>The ideal gas law with the supplied R; isothermal, isobaric and adiabatic processes.</li>
+        <li>Work done by a gas — the sample question on 7 moles expanding at constant temperature is worked in full.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Fifteen calorimetry and phase-change problems.</li>
+        <li>Ten gas-law problems; always convert to kelvin as the first written line.</li>
+        <li>Sketch PV diagrams for each process type and shade the work done.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 thermodynamics questions.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>The first law of thermodynamics is a statement of the conservation of:
+            <ol type="a">
+              <li>Entropy</li>
+              <li>Energy</li>
+              <li>Momentum</li>
+              <li>Mass</li>
+            </ol>
+          </li>
+          <li>During an isothermal process, which quantity is held constant?
+            <ol type="a">
+              <li>Pressure</li>
+              <li>Volume</li>
+              <li>Temperature</li>
+              <li>Number of moles only</li>
+            </ol>
+          </li>
+          <li>Specific heat capacity is best described as the heat needed to:
+            <ol type="a">
+              <li>Melt 1 kg of a substance</li>
+              <li>Raise the temperature of 1 kg by 1 °C</li>
+              <li>Boil 1 kg of a substance</li>
+              <li>Cool 1 kg by 1 °C</li>
+            </ol>
+          </li>
+          <li>In an adiabatic process, there is no exchange of:
+            <ol type="a">
+              <li>Work</li>
+              <li>Heat</li>
+              <li>Pressure</li>
+              <li>Volume</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–c, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>6</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Circuits, waves, optics, and the mock</p>
+      <ul>
+        <li>Resistors in series and parallel, resistivity, Ohm's law, capacitors and batteries.</li>
+        <li>Coulomb's law, electric field and potential difference from the formula sheet.</li>
+        <li>Sound: loudness, pitch, frequency, longitudinal waves, reflection; v = λf.</li>
+        <li>The optics formulas on the sheet — thin lens, mirror focal length, refractive index and the speed of light in a medium.</li>
+        <li>Full mock, then review of the first ten questions for speed and the last ten for method.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Reduce fifteen resistor networks to a single equivalent resistance.</li>
+        <li>Ten wave and sound questions, five optics questions.</li>
+        <li>Two full Physics Bowl papers under time.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> full mock, exam length, reference sheet only.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>According to Ohm&#x27;s law V = IR, if resistance doubles while current stays the same, voltage:
+            <ol type="a">
+              <li>Halves</li>
+              <li>Doubles</li>
+              <li>Stays the same</li>
+              <li>Becomes zero</li>
+            </ol>
+          </li>
+          <li>The total resistance of resistors connected in series is:
+            <ol type="a">
+              <li>The sum of the individual resistances</li>
+              <li>Less than the smallest resistor</li>
+              <li>The reciprocal of the sum of reciprocals</li>
+              <li>Equal to the largest resistor only</li>
+            </ol>
+          </li>
+          <li>The speed of sound in dry air at STP is approximately:
+            <ol type="a">
+              <li>150 m/s</li>
+              <li>343 m/s</li>
+              <li>500 m/s</li>
+              <li>1000 m/s</li>
+            </ol>
+          </li>
+          <li>In v = λf, if frequency doubles while wave speed stays constant, wavelength:
+            <ol type="a">
+              <li>Doubles</li>
+              <li>Halves</li>
+              <li>Stays the same</li>
+              <li>Quadruples</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–a, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="books">
+    <h3>Resources for this subject</h3>
+    <ul>
+      <li>Problems and Solutions in Introductory Mechanics — David Morin.</li>
+      <li>Fundamentals of Physics 10e — Halliday, Resnick &amp; Walker; chapters 2–11, 13, 16–18, 21–28 and 34.</li>
+      <li>Past United States Physics Bowl papers (aapt.org).</li>
+      <li>The official reference sheet of constants and formulas.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= MATHEMATICS ================= -->
+<section class="panel" id="p-math" role="tabpanel" aria-labelledby="tab-math" hidden>
+  <div class="panel-head">
+    <h2>Mathematics</h2>
+    <p>The stated benchmark is AMC10 in difficulty and style, which sets the whole approach: short, clever problems rather than long computations. Every session should end with students presenting a solution, because explaining is where the technique sticks.</p>
+    <div class="chips"><span class="chip">Algebra</span><span class="chip">Number theory</span><span class="chip">Geometry</span><span class="chip">Combinatorics</span><span class="chip">AMC10 level</span></div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>1</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Polynomials</p>
+      <ul>
+        <li>Divisibility and factorisation; the factor and remainder theorems.</li>
+        <li>Vieta's formulas for quadratics and cubics, then problems that are unreasonable without them.</li>
+        <li>The rational root theorem as a search strategy.</li>
+        <li>The binomial theorem and coefficient extraction.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Art of Problem Solving Volume 1, the polynomial chapters.</li>
+        <li>Fifteen AoPS problems tagged Vieta; write the relations before touching the algebra.</li>
+        <li>Ten binomial coefficient problems.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 8 AMC10 problems, 20 minutes.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>By Vieta&#x27;s formulas, for ax² + bx + c = 0 the sum of the roots equals:
+            <ol type="a">
+              <li>c/a</li>
+              <li>−b/a</li>
+              <li>b/a</li>
+              <li>−c/a</li>
+            </ol>
+          </li>
+          <li>The Rational Root Theorem is used to find possible:
+            <ol type="a">
+              <li>Irrational roots</li>
+              <li>Rational roots</li>
+              <li>Complex roots</li>
+              <li>Repeated roots only</li>
+            </ol>
+          </li>
+          <li>Factoring x² − 9 gives:
+            <ol type="a">
+              <li>(x − 3)(x + 3)</li>
+              <li>(x − 9)(x + 1)</li>
+              <li>(x − 3)²</li>
+              <li>(x + 3)²</li>
+            </ol>
+          </li>
+          <li>The binomial expansion of (x + y)² is:
+            <ol type="a">
+              <li>x² + y²</li>
+              <li>x² + 2xy + y²</li>
+              <li>x² − 2xy + y²</li>
+              <li>2x² + 2y²</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–a, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>2</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Sequences, inequalities, functions</p>
+      <ul>
+        <li>Arithmetic and geometric series; telescoping as a technique to look for.</li>
+        <li>The trivial inequality, AM–GM–HM, the triangle inequality, and equality conditions.</li>
+        <li>Injective, surjective, bijective; odd and even functions; functional equations by substitution.</li>
+        <li>Floor and ceiling functions; logarithmic and trigonometric function properties.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twelve series problems, at least four telescoping.</li>
+        <li>Ten inequality problems; state where equality holds every time.</li>
+        <li>Eight functional equation problems from Engel.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 8 AMC10 problems, 20 minutes.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>In a geometric sequence with first term a and common ratio r, the nth term is:
+            <ol type="a">
+              <li>a + (n−1)d</li>
+              <li>ar^(n−1)</li>
+              <li>a·n</li>
+              <li>a/r^n</li>
+            </ol>
+          </li>
+          <li>The AM–GM inequality states that for non-negative numbers, the arithmetic mean is:
+            <ol type="a">
+              <li>Always less than the geometric mean</li>
+              <li>Always greater than or equal to the geometric mean</li>
+              <li>Always equal to the geometric mean</li>
+              <li>Unrelated to the geometric mean</li>
+            </ol>
+          </li>
+          <li>A function f is odd if:
+            <ol type="a">
+              <li>f(−x) = f(x)</li>
+              <li>f(−x) = −f(x)</li>
+              <li>f(x) = 0 for all x</li>
+              <li>f(−x) = 1/f(x)</li>
+            </ol>
+          </li>
+          <li>The value of the floor function ⌊3.7⌋ is:
+            <ol type="a">
+              <li>3</li>
+              <li>4</li>
+              <li>3.7</li>
+              <li>0</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>3</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Number theory</p>
+      <ul>
+        <li>Congruences, modular arithmetic, last-digit and remainder problems.</li>
+        <li>Prime factorisation: divisor counts, sums, gcd and lcm.</li>
+        <li>Pythagorean triples and linear Diophantine equations.</li>
+        <li>Number bases and conversion problems.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twenty modular arithmetic problems, worked without a calculator.</li>
+        <li>Ten divisor-function problems.</li>
+        <li>Eight base-conversion and Diophantine problems.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 8 AMC10 number theory problems.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Two integers are congruent modulo n if they:
+            <ol type="a">
+              <li>Have the same remainder when divided by n</li>
+              <li>Are both prime</li>
+              <li>Are equal</li>
+              <li>Sum to n</li>
+            </ol>
+          </li>
+          <li>The prime factorisation of 60 is:
+            <ol type="a">
+              <li>2² × 3 × 5</li>
+              <li>2 × 3² × 5</li>
+              <li>2³ × 3 × 5</li>
+              <li>2 × 3 × 5²</li>
+            </ol>
+          </li>
+          <li>A Pythagorean triple consists of positive integers a, b, c such that:
+            <ol type="a">
+              <li>a + b = c</li>
+              <li>a² + b² = c²</li>
+              <li>a × b = c</li>
+              <li>a² − b² = c²</li>
+            </ol>
+          </li>
+          <li>The binary number 101 equals which value in base 10?
+            <ol type="a">
+              <li>3</li>
+              <li>5</li>
+              <li>7</li>
+              <li>10</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–a, 2–a, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>4</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Triangle geometry</p>
+      <ul>
+        <li>Centroid, circumcentre, orthocentre, incentre — the defining line for each and one property worth remembering.</li>
+        <li>Heron, inradius, circumradius and the sine area formula; choosing the one that fits the given data.</li>
+        <li>Similar and congruent triangles; the angle bisector theorem.</li>
+        <li>30-60-90 and 45-45-90 ratios used as shortcuts.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Fifteen triangle problems; draw the figure large and label everything before writing an equation.</li>
+        <li>For each area formula, find one problem where it is the fastest route.</li>
+        <li>Five angle-bisector problems.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 8 AMC10 geometry problems.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>The centroid of a triangle is the intersection of its:
+            <ol type="a">
+              <li>Angle bisectors</li>
+              <li>Medians</li>
+              <li>Perpendicular bisectors</li>
+              <li>Altitudes</li>
+            </ol>
+          </li>
+          <li>Heron&#x27;s formula is used to calculate a triangle&#x27;s:
+            <ol type="a">
+              <li>Perimeter</li>
+              <li>Area</li>
+              <li>Angle sum</li>
+              <li>Circumradius</li>
+            </ol>
+          </li>
+          <li>In a 30-60-90 triangle, the sides opposite these angles are in the ratio:
+            <ol type="a">
+              <li>1 : 1 : √2</li>
+              <li>1 : √3 : 2</li>
+              <li>1 : 2 : 3</li>
+              <li>√2 : √3 : 2</li>
+            </ol>
+          </li>
+          <li>The incentre of a triangle is equidistant from the triangle&#x27;s:
+            <ol type="a">
+              <li>Vertices</li>
+              <li>Sides</li>
+              <li>Midpoints</li>
+              <li>Medians</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>5</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Circles, transformations, coordinates</p>
+      <ul>
+        <li>Inscribed angles, cyclic quadrilaterals, tangent circles, power of a point.</li>
+        <li>Rotation, reflection, translation and dilation as problem-solving tools.</li>
+        <li>Coordinate geometry: lines, intersections, circles, distance and the shoelace formula.</li>
+        <li>Volumes and surface areas of prisms, pyramids, cones, cylinders and spheres.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twelve circle problems, at least four using power of a point.</li>
+        <li>Five shoelace problems and five 3D solid problems.</li>
+        <li>Re-solve three earlier synthetic problems with coordinates and compare.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 8 AMC10 problems, mixed geometry.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>An angle inscribed in a semicircle is always:
+            <ol type="a">
+              <li>45°</li>
+              <li>60°</li>
+              <li>90°</li>
+              <li>180°</li>
+            </ol>
+          </li>
+          <li>The shoelace formula is used to find a polygon&#x27;s:
+            <ol type="a">
+              <li>Perimeter</li>
+              <li>Area from its vertex coordinates</li>
+              <li>Interior angles</li>
+              <li>Number of sides</li>
+            </ol>
+          </li>
+          <li>Reflecting the point (x, y) over the x-axis gives:
+            <ol type="a">
+              <li>(x, −y)</li>
+              <li>(−x, y)</li>
+              <li>(−x, −y)</li>
+              <li>(y, x)</li>
+            </ol>
+          </li>
+          <li>The volume of a cone with radius r and height h is:
+            <ol type="a">
+              <li>πr²h</li>
+              <li>(1/3)πr²h</li>
+              <li>2πrh</li>
+              <li>(4/3)πr³</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–c, 2–b, 3–a, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>6</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Counting, probability, and the mock</p>
+      <ul>
+        <li>Rule of product and sum, inclusion–exclusion, pigeonhole, invariance, extremal and colouring arguments.</li>
+        <li>Permutations, combinations, partitions, Pascal's triangle, stars and bars.</li>
+        <li>Unconditional and conditional probability.</li>
+        <li>Strategy session: casework, constructive and complementary counting, bijections, symmetry — one problem solved two ways each time.</li>
+        <li>Full AMC10-style mock, then review of guessing and time allocation.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Twenty counting problems chosen so that complementary counting is obviously faster in half of them.</li>
+        <li>Ten probability problems.</li>
+        <li>Two full past AMC10 papers under time on the AoPS site.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> full mock, exam length.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Choosing 3 items from 5 without regard to order uses:
+            <ol type="a">
+              <li>A permutation</li>
+              <li>A combination</li>
+              <li>A factorial alone</li>
+              <li>The addition rule</li>
+            </ol>
+          </li>
+          <li>The Pigeonhole Principle states that if n items are placed into m containers with n &gt; m:
+            <ol type="a">
+              <li>All containers are empty</li>
+              <li>At least one container holds more than one item</li>
+              <li>Each container holds exactly one item</li>
+              <li>The items must be identical</li>
+            </ol>
+          </li>
+          <li>The probability of two independent events both occurring is found by:
+            <ol type="a">
+              <li>Adding their probabilities</li>
+              <li>Multiplying their probabilities</li>
+              <li>Subtracting their probabilities</li>
+              <li>Dividing their probabilities</li>
+            </ol>
+          </li>
+          <li>The &#x27;stars and bars&#x27; technique is used to count:
+            <ol type="a">
+              <li>Prime numbers</li>
+              <li>Ways to distribute identical objects into distinct groups</li>
+              <li>Graph colourings</li>
+              <li>Matrix determinants</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="books">
+    <h3>Resources for this subject</h3>
+    <ul>
+      <li>Art of Problem Solving Volume 1, 7th ed. — Lehoczky &amp; Rusczyk.</li>
+      <li>Problem-Solving Strategies — Arthur Engel.</li>
+      <li>Past AMC10 problems and solutions on the AoPS website and wiki.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= EARTH SCIENCE ================= -->
+<section class="panel" id="p-earth" role="tabpanel" aria-labelledby="tab-earth" hidden>
+  <div class="panel-head">
+    <h2>Earth Science</h2>
+    <p>Four blocks of content — atmosphere, hydrosphere, geosphere, astronomy — and the least familiar subject for most students, so the plan front-loads the atmosphere and keeps every week tied to diagrams and maps rather than definitions.</p>
+    <div class="chips"><span class="chip">Atmosphere</span><span class="chip">Hydrosphere</span><span class="chip">Geosphere</span><span class="chip">Astronomy</span></div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>1</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Atmosphere and water in the air</p>
+      <ul>
+        <li>Layers of the atmosphere, composition, and the vertical temperature profile.</li>
+        <li>Relative humidity, dew point, and the water cycle.</li>
+        <li>How precipitation actually forms; cloud types and cloud formation.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Tarbuck, Foundations of Earth Science — the atmosphere chapters.</li>
+        <li>Draw and annotate the vertical profile from memory, with the boundary names.</li>
+        <li>Learn the cloud table by height and form, not by picture alone.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions from a past USESO open paper.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>The layer of the atmosphere closest to Earth&#x27;s surface, where weather occurs, is the:
+            <ol type="a">
+              <li>Stratosphere</li>
+              <li>Troposphere</li>
+              <li>Mesosphere</li>
+              <li>Thermosphere</li>
+            </ol>
+          </li>
+          <li>Relative humidity measures:
+            <ol type="a">
+              <li>The total mass of water vapour in the air</li>
+              <li>Air pressure</li>
+              <li>The amount of water vapour in air relative to the maximum it can hold</li>
+              <li>Wind speed</li>
+            </ol>
+          </li>
+          <li>Which cloud type is most closely associated with thunderstorms?
+            <ol type="a">
+              <li>Cirrus</li>
+              <li>Stratus</li>
+              <li>Cumulonimbus</li>
+              <li>Altocumulus</li>
+            </ol>
+          </li>
+          <li>The process by which water vapour turns into liquid water is called:
+            <ol type="a">
+              <li>Evaporation</li>
+              <li>Condensation</li>
+              <li>Precipitation</li>
+              <li>Transpiration</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–c, 3–c, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>2</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Air masses, fronts, storms</p>
+      <ul>
+        <li>Air mass types and source regions; pressure systems and their circulation.</li>
+        <li>Warm, cold, stationary and occluded fronts; the weather sequence each brings.</li>
+        <li>Mid-latitude cyclone formation stage by stage.</li>
+        <li>Thunderstorms and severe weather; local winds including sea and land breezes.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Interpret five weather maps: identify fronts and predict the next twelve hours.</li>
+        <li>Build a front comparison table: symbol, slope, cloud type, precipitation, temperature change.</li>
+        <li>Sketch the life cycle of a mid-latitude cyclone.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions, map-based where possible.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>A cold front forms when:
+            <ol type="a">
+              <li>A cold air mass overtakes and lifts a warm air mass</li>
+              <li>A warm air mass overtakes a cold air mass</li>
+              <li>Two air masses of equal temperature meet</li>
+              <li>No air masses interact</li>
+            </ol>
+          </li>
+          <li>Mid-latitude cyclones are typically associated with:
+            <ol type="a">
+              <li>High pressure and clear skies</li>
+              <li>Low pressure and precipitation</li>
+              <li>No pressure change</li>
+              <li>Only summer months</li>
+            </ol>
+          </li>
+          <li>Thunderstorms are most closely linked to which cloud type and process?
+            <ol type="a">
+              <li>Fog forming overnight</li>
+              <li>Cumulonimbus clouds with strong updrafts</li>
+              <li>Thin cirrus clouds</li>
+              <li>Stratus clouds and drizzle</li>
+            </ol>
+          </li>
+          <li>Sea breezes occur during the day mainly because:
+            <ol type="a">
+              <li>Land heats faster than water, so air rises over land and pulls in air from the sea</li>
+              <li>Water heats faster than land</li>
+              <li>Land and water heat at the same rate</li>
+              <li>Wind direction is unrelated to temperature</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–a, 2–b, 3–b, 4–a</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>3</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Global circulation</p>
+      <ul>
+        <li>The three circulation cells and the global wind belts they produce.</li>
+        <li>The Coriolis effect and why winds curve.</li>
+        <li>Monsoons and hurricanes: formation conditions, structure, season.</li>
+        <li>El Niño and La Niña — normal conditions first, then what changes in each phase.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Draw the full circulation diagram with pressure belts, wind belts and the climate zones they create.</li>
+        <li>One side-by-side sheet: normal, El Niño, La Niña.</li>
+        <li>Ten questions on winds and storms.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on circulation and phenomena.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>In the Northern Hemisphere, the Coriolis effect deflects moving air to the:
+            <ol type="a">
+              <li>Right</li>
+              <li>Left</li>
+              <li>It causes no deflection</li>
+              <li>Straight ahead only</li>
+            </ol>
+          </li>
+          <li>The trade winds are found mainly:
+            <ol type="a">
+              <li>Near the poles</li>
+              <li>Near the equator</li>
+              <li>At mid-latitudes only</li>
+              <li>Only over land</li>
+            </ol>
+          </li>
+          <li>El Niño is characterised by Pacific surface waters that are:
+            <ol type="a">
+              <li>Cooler than normal</li>
+              <li>Warmer than normal</li>
+              <li>Unchanged</li>
+              <li>Frozen</li>
+            </ol>
+          </li>
+          <li>The three main global atmospheric circulation cells are the Hadley, Ferrel, and:
+            <ol type="a">
+              <li>Coriolis cell</li>
+              <li>Polar cell</li>
+              <li>Trade cell</li>
+              <li>Monsoon cell</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–a, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>4</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Hydrosphere</p>
+      <ul>
+        <li>Stream discharge calculations; erosional and depositional features of rivers.</li>
+        <li>Glaciers: formation, and the landforms they erode and deposit.</li>
+        <li>Groundwater: aquifers, water table, porosity and permeability.</li>
+        <li>Oceans: heat fluxes, temperature and salinity distribution, surface and overturning circulation, waves, tides, tsunamis, coastal features, sediment types.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Ten discharge and flow-velocity calculations with units written out.</li>
+        <li>One landform sheet split into river, glacial and coastal, each entry marked erosional or depositional.</li>
+        <li>Learn the temperature–salinity depth profiles well enough to sketch them.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on freshwater and oceans.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Stream discharge is calculated as a stream&#x27;s cross-sectional area multiplied by its:
+            <ol type="a">
+              <li>Depth</li>
+              <li>Velocity</li>
+              <li>Width</li>
+              <li>Temperature</li>
+            </ol>
+          </li>
+          <li>Groundwater is stored in permeable rock layers called:
+            <ol type="a">
+              <li>Aquitards</li>
+              <li>Aquifers</li>
+              <li>Watersheds</li>
+              <li>Deltas</li>
+            </ol>
+          </li>
+          <li>Ocean salinity is most commonly measured in:
+            <ol type="a">
+              <li>Degrees Celsius</li>
+              <li>Parts per thousand</li>
+              <li>Pascals</li>
+              <li>Litres</li>
+            </ol>
+          </li>
+          <li>A landform built up from material deposited by a glacier is called a:
+            <ol type="a">
+              <li>Delta</li>
+              <li>Moraine</li>
+              <li>Meander</li>
+              <li>Sinkhole</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>5</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Geosphere</p>
+      <ul>
+        <li>Reading phase diagrams; Bowen's reaction series and what it predicts about mineral assemblages.</li>
+        <li>Mineral properties: crystal structure, hardness, opacity, fracture and cleavage, habit.</li>
+        <li>Sedimentary structures and depositional environments.</li>
+        <li>Types of metamorphism and the rocks each produces.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Identification practice with a mineral property table — twenty specimens or photographs.</li>
+        <li>Match ten sedimentary structures to their environments.</li>
+        <li>Work through Science Olympiad Rocks and Minerals and Geologic Mapping practice tests.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> 12 questions on minerals and rocks.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>Bowen&#x27;s Reaction Series describes the order in which:
+            <ol type="a">
+              <li>Sedimentary rocks form</li>
+              <li>Minerals crystallise from cooling magma</li>
+              <li>Metamorphic rocks form</li>
+              <li>Fossils are preserved</li>
+            </ol>
+          </li>
+          <li>Mineral hardness is measured using the:
+            <ol type="a">
+              <li>Richter scale</li>
+              <li>Mohs scale</li>
+              <li>pH scale</li>
+              <li>Beaufort scale</li>
+            </ol>
+          </li>
+          <li>Rock formed from the compaction and cementation of sediments is:
+            <ol type="a">
+              <li>Igneous</li>
+              <li>Sedimentary</li>
+              <li>Metamorphic</li>
+              <li>Volcanic</li>
+            </ol>
+          </li>
+          <li>Regional metamorphism is mainly caused by:
+            <ol type="a">
+              <li>Direct contact with magma only</li>
+              <li>Large-scale heat and pressure over a wide area</li>
+              <li>Weathering at the surface</li>
+              <li>Erosion by wind and water</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–b, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="week">
+    <div class="wk-num"><span>Week</span>6</div>
+    <div>
+      <h4>Teach</h4>
+      <p class="topic">Astronomy and the mock</p>
+      <ul>
+        <li>The listed constellations with their asterisms and IAU abbreviations.</li>
+        <li>The Earth–Moon system; structure and components of the solar system.</li>
+        <li>Sidereal vs synodic periods, worked numerically.</li>
+        <li>Eclipse geometry and the major space missions.</li>
+        <li>Full mock, then review by block so weak areas are visible.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Study</h4>
+      <ul>
+        <li>Use Stellarium to locate each listed constellation and note its abbreviation.</li>
+        <li>Five sidereal–synodic conversion problems.</li>
+        <li>One past USESO open paper under time; treat USAAAO questions as stretch practice only.</li>
+      </ul>
+      <span class="task"><b>Timed set:</b> full mock, exam length.</span>
+    </div>
+      <div class="quiz">
+        <h4>Quick check</h4>
+        <ol>
+          <li>A solar eclipse occurs when:
+            <ol type="a">
+              <li>The Moon passes between the Earth and the Sun</li>
+              <li>The Earth passes between the Moon and the Sun</li>
+              <li>The Sun passes between the Earth and the Moon</li>
+              <li>The three bodies never align</li>
+            </ol>
+          </li>
+          <li>A planet&#x27;s sidereal period is measured relative to:
+            <ol type="a">
+              <li>The Sun&#x27;s position in the sky</li>
+              <li>The fixed background stars</li>
+              <li>The observer&#x27;s local horizon</li>
+              <li>The Moon&#x27;s phase</li>
+            </ol>
+          </li>
+          <li>The Big Dipper asterism belongs to which constellation?
+            <ol type="a">
+              <li>Orion</li>
+              <li>Ursa Major</li>
+              <li>Cassiopeia</li>
+              <li>Lyra</li>
+            </ol>
+          </li>
+          <li>Solar system planets are broadly grouped into terrestrial planets and:
+            <ol type="a">
+              <li>Dwarf planets</li>
+              <li>Gas giants</li>
+              <li>Asteroids</li>
+              <li>Comets</li>
+            </ol>
+          </li>
+        </ol>
+        <p class="key">Answers: 1–a, 2–b, 3–b, 4–b</p>
+      </div>
+  </div>
+
+  <div class="books">
+    <h3>Resources for this subject</h3>
+    <ul>
+      <li>Foundations of Earth Science — Tarbuck.</li>
+      <li>Foundations of Astrophysics — Ryden &amp; Peterson, the syllabus-relevant sections only, around 80 pages.</li>
+      <li>Stellarium for sky work.</li>
+      <li>Past USESO open papers; Science Olympiad Dynamic Planet, Rocks and Minerals, and Geologic Mapping tests.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Built from the official HUSO Global 2026 Open Round syllabi for grades 9–10. The syllabi are deliberately exhaustive — not every topic will appear on the paper, and no student is expected to score 100%. If a week runs short, cut practice volume rather than cutting a topic entirely.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('nav.subjects button'));
+  function select(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var i = tabs.indexOf(t), n = null;
+      if(e.key === 'ArrowRight') n = tabs[(i+1) % tabs.length];
+      if(e.key === 'ArrowLeft') n = tabs[(i-1+tabs.length) % tabs.length];
+      if(n){ e.preventDefault(); n.focus(); select(n); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
